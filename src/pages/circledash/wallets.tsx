@@ -52,7 +52,7 @@ function Wallets() {
                 <h2 className="text-xl font-semibold flex items-center">
                   <IoWalletOutline className="mr-2" /> Name: {wallet.name}
                 </h2>
-                <div className="text-sm overflow-hidden overflow-ellipsis max-w-md">{wallet.desc}</div>
+                <div className="text-sm overflow-hidden overflow-ellipsis max-w-md">{wallet.refId}</div>
                 <div className="flex items-center justify gap-1 text-sm hover:underline cursor-pointer">
                   <div onClick={handleCopyAddress} className="flex items-center">
                     <span className="overflow-hidden overflow-ellipsis max-w-md">
@@ -61,8 +61,8 @@ function Wallets() {
                     <IoCopy className="inline-block ml-1" />
                   </div>
                 </div>
-                {wallet.desc && (
-                  <div className="text-sm"> {wallet.desc}</div>
+                {wallet.refId && (
+                  <div className="text-sm"> {wallet.refId}</div>
                 )}
                 
               </div>
