@@ -83,18 +83,14 @@ export default function Home() {
             let uuid = v4({
               random: sha256(decoded.email + decoded.name),
             });
-
-            // lets try to refresh session, if we can user has already signed in
             try {
               await refreshSession({
                 userId: uuid,
               });
-
               setUserId(uuid);
               toast.success("User signed in successfully");
               router.push("/circledash");
             } catch (error) {
-              // if we get an error, user has not signed in
               executeChallenge(uuid);
             }
           }}
