@@ -39,10 +39,17 @@ function SettingsComponent() {
       await callback();
       toast.success("Operation completed successfully");
     } catch (error) {
-      toast.error(error?.message);
+      if (error instanceof Error) {
+        // Error is an instance of the Error class
+        toast.error(error.message);
+      } else {
+        // Handle other types of errors
+        toast.error("An unknown error occurred");
+      }
     }
     setLoading(false);
   }
+  
 
   async function onRestorePin() {
     await executeWithLoading(async () => {
