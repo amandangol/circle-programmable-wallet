@@ -114,14 +114,15 @@ async function handleSubmit() {
           />
           <label htmlFor="tokenId" className="text-gray-600">Token ID</label>
           <Dropdown
-            activeItem={balances.tokenBalances.find((b) => b.token.id === tokenId)?.token.name}
-            items={balances.tokenBalances.map((b) => b.token.name)}
-            onItemChange={(item) => {
-              let id = balances.tokenBalances.find((b) => b.token.name === item)?.token.id;
-              invariant(id, "Token ID not found");
-              setTokenId(id);
-            }}
-          />
+  activeItem={balances?.tokenBalances?.find((b) => b.token.id === tokenId)?.token.name ?? ""}
+  items={(balances?.tokenBalances ?? []).map((b) => b.token.name).filter(Boolean)}
+  onItemChange={(item) => {
+    let id = balances?.tokenBalances?.find((b) => b.token.name === item)?.token.id;
+    invariant(id, "Token ID not found");
+    setTokenId(id!);
+  }}
+/>
+
           <button
             onClick={handleSubmit}
             disabled={!to || !amount || !tokenId}
