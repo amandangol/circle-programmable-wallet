@@ -35,10 +35,12 @@ const TokenRow = ({ token }: { token: { token: { name?: string }; amount: string
 
   useEffect(() => {
     // Load token image
-    const { name } = token.token;
-    const image = IMAGE_KEY_MAP[name];
-    if (image) {
-      setTokenImage(image);
+    const tokenName = token.token.name;
+    if (tokenName) {
+      const image = IMAGE_KEY_MAP[tokenName];
+      if (image) {
+        setTokenImage(image);
+      }
     }
   }, [token]);
 
@@ -49,7 +51,7 @@ const TokenRow = ({ token }: { token: { token: { name?: string }; amount: string
           {tokenImage && (
             <img
               src={tokenImage}
-              alt={token.token.name}
+              alt={token.token.name || ""}
               className="h-6 w-6 mr-2"
             />
           )}

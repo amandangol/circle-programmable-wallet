@@ -1,4 +1,4 @@
-import { Layout } from "@/components/layouts/layout";
+import { Layout } from "@/components/layout";
 import { useWallet } from "@/hooks/useWallet";
 import { useEffect, useState } from "react";
 import { Dropdown } from "@/components/dropdown";
@@ -10,7 +10,7 @@ import { W3SSdk } from "@circle-fin/w3s-pw-web-sdk";
 import { useContact } from "@/hooks/useContact";
 import { isValidEthereumAddress } from "@/utils/eth";
 import Link from "next/link";
-import { TokenComponent } from "@/components/layouts/tokencomponent";
+import { TokenComponent } from "@/components/tokencomponent";
 
 let CircleClient: W3SSdk;
 
