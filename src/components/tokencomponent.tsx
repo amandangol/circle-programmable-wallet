@@ -37,7 +37,7 @@ const TokenRow = ({ token }: { token: { token: { name?: string }; amount: string
     // Load token image
     const tokenName = token.token.name;
     if (tokenName) {
-      const image = IMAGE_KEY_MAP[tokenName];
+      const image = tokenName;
       if (image) {
         setTokenImage(image);
       }
