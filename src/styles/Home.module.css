@@ -1,0 +1,52 @@
+@font-face {
+    font-family: 'Hippotamia';
+    src: url('/public/fonts/Hippotamia.ttf') format('truetype');
+  }
+  
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .content {
+    text-align: center;
+  }
+  
+  .logo {
+    height: 100px;
+    margin: auto;
+    
+  }
+  
+  .title {
+    font-family: 'Hippotamia', sans-serif; /* Apply the Hippotamia font */
+
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .subtitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: 'Kerchief-Font', sans-serif; 
+
+  }
+  
+  .button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  
+  .button button {
+    font-size: 1.2rem; /* Adjust the font size as needed */
+    padding: 12px 24px; /* Adjust the padding as needed */
+  }
+  
+  

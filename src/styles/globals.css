@@ -1,0 +1,88 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+  /* Add some padding and set font family */
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  /* linear gradient to bottom */
+  background: linear-gradient(180deg, #f0f0f0 0%, #fff 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* Add some margin-bottom for headings */
+  margin-bottom: 1rem;
+}
+
+p {
+  /* Add some margin-bottom for paragraphs */
+  margin-bottom: 1.5rem;
+}
+
+.table {
+  /* Add some margin-bottom for tables */
+  margin-bottom: 1.5rem;
+  /* Set table border color */
+  border-color: #cbd5e0;
+}
+
+/* Style table header */
+.table th {
+  /* Set background color */
+  background-color: #edf2f7;
+  /* Set padding */
+  padding: 0.75rem;
+  /* Set border color */
+  border-color: #cbd5e0;
+}
+
+/* Style table cells */
+.table td {
+  /* Set padding */
+  padding: 0.75rem;
+  /* Set border color */
+  border-color: #cbd5e0;
+}
+
+/* Add hover effect to table rows */
+.table tr:hover {
+  /* Set background color */
+  background-color: #f7fafc;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+.container {
+  border: none; /* Remove white border */
+}
+
+.container {
+  border: none; /* Remove white border */
+}
+
+.btn-primary-create {
+  background-color: #4a90e2;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-primary-create:hover {
+  background-color: #3f83d0;
+}
+
+
