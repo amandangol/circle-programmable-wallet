@@ -1,5 +1,5 @@
-import { Layout } from "@/components/layouts/layout";
-import { WalletsComponent } from "@/components/layouts/walletcomponent";
+import { Layout } from "@/components/layout";
+import { WalletsComponent } from "@/components/walletcomponent";
 import { Dropdown } from "@/components/dropdown";
 import { useContact } from "@/hooks/useContact";
 import { useWallet } from "@/hooks/useWallet";
