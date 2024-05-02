@@ -118,7 +118,7 @@ const TransactionComp = ({ transaction }: { transaction: Transaction }) => {
       <td>
         <div className="flex flex-row gap-2 items-center justify-end">
           <img
-            src={IMAGE_KEY_MAP[transaction.tokenId]}
+            src={transaction.tokenId}
             alt="image"
             className="h-6 w-6"
           />
