@@ -168,7 +168,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
   function changeWallet(walletId: string) {
     const newWallet = wallets.find((w) => w.id === walletId);
     invariant(newWallet, "Wallet not found");
-    setWallet(newWallet);
+    setWallet(newWallet!);
     setWalletId(walletId);
   }
 
@@ -186,7 +186,7 @@ export function WalletProvider({ children }: { children: ReactNode }) {
     let transaction = await createTransaction({
       amount,
       destinationAddress,
-      walletId: wallet.id,
+      walletId: wallet!.id,
       userToken,
       tokenId,
       fee: "MEDIUM",
