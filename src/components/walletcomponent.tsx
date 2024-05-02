@@ -19,7 +19,7 @@ export function WalletsComponent() {
             key={wallet.address}
           >
             <h2 className="text-lg font-semibold text-white">{wallet.name}</h2>
-            <div className="text-sm text-gray-500 text-white">{wallet.refId}</div>
+            <div className="text-sm text-gray-500 text-white">{wallet.desc}</div>
             <div className="text-sm text-gray-500 text-white">{wallet.address}</div>
             <button
               onClick={() => changeWallet(wallet.id)}

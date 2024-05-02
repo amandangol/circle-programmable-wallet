@@ -21,7 +21,7 @@ export default async function handler(
         metadata: [
             {
                 name,
-                refId: description
+                desc: description
             }
         ]
     });
