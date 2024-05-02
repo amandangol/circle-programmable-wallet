@@ -36,19 +36,26 @@ function Send() {
 
   if (!balances || !balances.tokenBalances) return null;
 
-  async function handleSubmit() {
-    if (!isValidEthereumAddress(to)) {
-      toast.error("Invalid address");
-      return;
-    }
+async function handleSubmit() {
+  if (!isValidEthereumAddress(to)) {
+    toast.error("Invalid address");
+    return;
+  }
 
-    let balance = balances.tokenBalances.find((b) => b.token.id === tokenId);
-    invariant(balance, "Token ID not found");
+  // Check if balances is null before accessing its properties
+  if (!balances || !balances.tokenBalances) {
+    toast.error("Balances not available");
+    return;
+  }
 
-    if (Number(amount) > Number(balance.amount)) {
-      toast.error("Amount exceeds balance");
-      return;
-    }
+  let balance = balances.tokenBalances.find((b) => b.token.id === tokenId);
+  invariant(balance, "Token ID not found");
+
+  if (Number(amount) > Number(balance!.amount)) {
+    toast.error("Amount exceeds balance");
+    return;
+  }
+
 
     sendTransaction(amount, to, tokenId)
       .then((txId) => {
