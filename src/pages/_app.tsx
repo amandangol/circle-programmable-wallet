@@ -5,13 +5,15 @@ import { GoogleOAuthProvider } from "@react-oauth/google";
 import Head from "next/head";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""; // Provide a default value
+
   return (
     <>
       <Head>
         <title>FortCircle</title>
         <meta name="description" content="" />
       </Head>
-      <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
+      <GoogleOAuthProvider clientId={clientId}>
           <ToastProvider>
             <Component {...pageProps} />
           </ToastProvider>
@@ -19,3 +21,4 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   );
 }
+
