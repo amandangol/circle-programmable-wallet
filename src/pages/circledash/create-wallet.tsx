@@ -1,4 +1,4 @@
-import { Layout } from "@/components/layouts/layout";
+import { Layout } from "@/components/layout";
 import { useWallet } from "@/hooks/useWallet";
 import { createWallet } from "@/api/circle";
 import { useEffect, useState } from "react";
@@ -11,7 +11,7 @@ let CircleClient: W3SSdk;
 
 export default function CreateWalletPage() {
   return (
-    <Layout title="Create Wallet">
+    <Layout title="">
       <CreateWallet />
     </Layout>
   );

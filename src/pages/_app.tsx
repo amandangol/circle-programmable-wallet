@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <title>FortCircle</title>
         <meta name="description" content="" />
       </Head>
-      <GoogleOAuthProvider clientId="701015667868-v0hnacmbhhn135k71bpct5ejque3u1af.apps.googleusercontent.com">
+      <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}>
         <FontProvider>
           <ToastProvider>
             <Component {...pageProps} />
