@@ -18,12 +18,13 @@ export default function ContactsPage() {
 function Contacts() {
   const { contacts, removeContact } = useContact();
 
-  const handleRemoveContact = (address) => {
+  const handleRemoveContact = (address: string) => {
     removeContact(address);
     if (contacts.length === 1) {
       // Do something when there are no contacts available
     }
   };
+  
 
   const handleCopyAddress = (address) => {
     navigator.clipboard.writeText(address);
