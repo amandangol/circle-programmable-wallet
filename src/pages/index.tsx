@@ -32,23 +32,23 @@ export default function Home() {
     CircleClient = new W3SSdk();
   }, []);
 
-  async function executeChallenge(credential) {
+  async function executeChallenge(credential: string) {
     let { encryptionKey, userToken, challengeId } =
       await createUserPinWithWallets({
         userId: credential,
       }).then((data) => data.data);
 
-    CircleClient.setAppSettings({
+    CircleClient!.setAppSettings({
       appId: CIRCLE_APP_ID,
     });
 
-    CircleClient.setAuthentication({
+    CircleClient!.setAuthentication({
       encryptionKey,
       userToken,
     });
 
     await new Promise((resolve, reject) => {
-      CircleClient.execute(challengeId, async (error) => {
+      CircleClient!.execute(challengeId, async (error:any) => {
         if (error) {
           toast.error(error?.message);
           reject(error);
@@ -76,7 +76,7 @@ export default function Home() {
         </p>
         <div className={styles.button}>
           <GoogleLogin
-           onSuccess={async (user) => {
+           onSuccess={async (user:any) => {
             invariant(user.credential, "User credential is missing");
             let decoded = jwtDecode<GoogleAuthJWTResponse>(user.credential);
 
