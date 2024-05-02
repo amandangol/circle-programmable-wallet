@@ -26,7 +26,7 @@ function Contacts() {
   };
   
 
-  const handleCopyAddress = (address) => {
+  const handleCopyAddress = (address:string) => {
     navigator.clipboard.writeText(address);
     toast.success('Address copied to clipboard');
   };
