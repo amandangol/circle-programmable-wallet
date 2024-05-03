@@ -1,7 +1,5 @@
 import { GetBalancesResponse, Transaction, WalletResponse } from "@circle-fin/user-controlled-wallets/dist/types/clients/user-controlled-wallets";
 
-
-
 export async function getWalletTokenBalance({
     walletId,
     userToken,
@@ -16,7 +14,7 @@ export async function getWalletTokenBalance({
         balance: GetBalancesResponse;
     }
 }> {
-    return await fetch("/api/circle/fetchBalance", {
+    const response = await fetch("/api/circle/fetchBalance", {
         method: "POST",
         body: JSON.stringify({
             walletId,
@@ -26,12 +24,14 @@ export async function getWalletTokenBalance({
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        }
     });
+
+    const data = await response.json();
+
+    return {
+        status: response.status,
+        data: data ? data.data : null // Add null check for data
+    };
 }
 
 export async function listTransactions({
@@ -48,7 +48,7 @@ export async function listTransactions({
         transactions: Transaction[];
     };
 }> {
-    return await fetch("/api/circle/fetchTransactions", {
+    const response = await fetch("/api/circle/fetchTransactions", {
         method: "POST",
         body: JSON.stringify({
             userToken,
@@ -58,12 +58,14 @@ export async function listTransactions({
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        };
     });
+
+    const data = await response.json();
+
+    return {
+        status: response.status,
+        data: data ? data.data : null // Add null check for data
+    };
 }
 
 export async function createUserPinWithWallets({
@@ -78,7 +80,7 @@ export async function createUserPinWithWallets({
         encryptionKey: string;
     };
 }> {
-    return await fetch("/api/circle/userCreate", {
+    const response = await fetch("/api/circle/userCreate", {
         method: "POST",
         body: JSON.stringify({
             userId,
@@ -86,13 +88,16 @@ export async function createUserPinWithWallets({
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        };
     });
+
+    const responseData = await response.json();
+
+    return {
+        status: response.status,
+        data: responseData ? responseData.data : null // Add null check for responseData
+    };
 }
+
 
 export async function refreshSession({
     userId
@@ -105,7 +110,7 @@ export async function refreshSession({
         encryptionKey: string;
     };
 }> {
-    return await fetch("/api/circle/refreshSession", {
+    const response = await fetch("/api/circle/refreshSession", {
         method: "POST",
         body: JSON.stringify({
             userId
@@ -113,13 +118,16 @@ export async function refreshSession({
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        };
     });
+
+    const responseData = await response.json();
+
+    return {
+        status: response.status,
+        data: responseData ? responseData.data : null // Add null check for responseData
+    };
 }
+
 
 export async function getWallet({
     walletId,
@@ -133,7 +141,7 @@ export async function getWallet({
         wallet: WalletResponse;
     };
 }> {
-    return await fetch("/api/circle/getWallet", {
+    const response = await fetch("/api/circle/getWallet", {
         method: "POST",
         body: JSON.stringify({
             walletId,
@@ -142,13 +150,16 @@ export async function getWallet({
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        };
     });
+
+    const responseData = await response.json();
+
+    return {
+        status: response.status,
+        data: responseData ? responseData.data : null // Add null check for responseData
+    };
 }
+
 
 export async function getWallets({
     userToken
@@ -160,7 +171,7 @@ export async function getWallets({
         wallets: WalletResponse[];
     };
 }> {
-    return await fetch("/api/circle/getWallets", {
+    const response = await fetch("/api/circle/getWallets", {
         method: "POST",
         body: JSON.stringify({
             userToken
@@ -168,13 +179,16 @@ export async function getWallets({
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        };
     });
+
+    const responseData = await response.json();
+
+    return {
+        status: response.status,
+        data: responseData ? responseData.data : null // Add null check for responseData
+    };
 }
+
 
 export async function createWallet({
     type,
@@ -192,7 +206,7 @@ export async function createWallet({
         challengeId: string;
     };
 }> {
-    return await fetch("/api/circle/walletCreate", {
+    const response = await fetch("/api/circle/walletCreate", {
         method: "POST",
         body: JSON.stringify({
             type,
@@ -203,13 +217,16 @@ export async function createWallet({
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        };
     });
+
+    const responseData = await response.json();
+
+    return {
+        status: response.status,
+        data: responseData ? responseData.data : null // Add null check for responseData
+    };
 }
+
 
 export async function createTransaction({
     amount,
@@ -233,7 +250,7 @@ export async function createTransaction({
         challengeId: string;
     };
 }> {
-    return await fetch("/api/circle/createTransaction", {
+    const response = await fetch("/api/circle/createTransaction", {
         method: "POST",
         body: JSON.stringify({
             amounts: [amount],
@@ -247,13 +264,16 @@ export async function createTransaction({
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        };
     });
+
+    const responseData = await response.json();
+
+    return {
+        status: response.status,
+        data: responseData ? responseData.data : null // Add null check for responseData
+    };
 }
+
 
 export async function restorePin({
     userId
@@ -265,7 +285,7 @@ export async function restorePin({
         challengeId: string;
     };
 }> {
-    return await fetch("/api/circle/restorePin", {
+    const response = await fetch("/api/circle/restorePin", {
         method: "POST",
         body: JSON.stringify({
             userId
@@ -273,12 +293,14 @@ export async function restorePin({
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        };
     });
+
+    const responseData = await response.json();
+
+    return {
+        status: response.status,
+        data: responseData ? responseData.data : null // Add null check for responseData
+    };
 }
 
 export async function updateUserPin({
@@ -291,7 +313,7 @@ export async function updateUserPin({
         challengeId: string;
     };
 }> {
-    return await fetch("/api/circle/changePin", {
+    const response = await fetch("/api/circle/changePin", {
         method: "POST",
         body: JSON.stringify({
             userId
@@ -299,11 +321,13 @@ export async function updateUserPin({
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        };
     });
+
+    const responseData = await response.json();
+
+    return {
+        status: response.status,
+        data: responseData ? responseData.data : null // Add null check for responseData
+    };
 }
 
