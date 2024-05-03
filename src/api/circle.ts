@@ -59,7 +59,7 @@ export async function getWalletTokenBalance({
     }
 }> {
     return await fetch("/api/circle/fetchBalance", {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify({
             walletId,
             userToken,
@@ -91,7 +91,7 @@ export async function listTransactions({
     };
 }> {
     return await fetch("/api/circle/fetchTransactions", {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify({
             userToken,
             walletIds,
@@ -176,7 +176,7 @@ export async function getWallet({
     };
 }> {
     return await fetch("/api/circle/getWallet", {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify({
             walletId,
             userToken
@@ -203,7 +203,7 @@ export async function getWallets({
     };
 }> {
     return await fetch("/api/circle/getWallets", {
-        method: "GET",
+        method: "POST",
         body: JSON.stringify({
             userToken
         }),

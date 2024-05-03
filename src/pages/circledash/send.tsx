@@ -98,9 +98,9 @@ async function handleSubmit() {
               className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
             />
             {isValidEthereumAddress(to) && !contacts.find((c) => c.address === to) && (
-              <Link href={"/circledash/add-contact?to=" + to}>
+              <a href={"/circledash/add-contact?to=" + to}>
                 <a className="absolute inset-y-0 right-0 flex items-center pr-3 text-sm text-gray-500 hover:underline">Add to contacts</a>
-              </Link>
+              </a>
             )}
           </div>
           <label htmlFor="amount" className="text-gray-600">Amount</label>

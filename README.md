@@ -27,3 +27,12 @@ A personalized directory within the wallet, the Contacts feature allows users to
 To integrate the Contacts feature, the application utilizes a database to store contact information, including wallet addresses and associated labels. Users can add and delete contacts through the application interface, with changes reflected in real-time.
 
 For the Social Logins feature, the application leverages OAuth authentication mechanisms provided by Google. Upon selecting the social login option, users are redirected to the respective platform for authentication. Once authenticated, users are granted access to their wallets, simplifying the login process.
+
+## Snapshots:
+
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
+![alt text](image-6.png)
