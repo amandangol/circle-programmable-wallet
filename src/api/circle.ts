@@ -1,48 +1,6 @@
 import { GetBalancesResponse, Transaction, WalletResponse } from "@circle-fin/user-controlled-wallets/dist/types/clients/user-controlled-wallets";
 
-export async function createTransaction({
-    amount,
-    destinationAddress,
-    walletId,
-    userToken,
-    encryptionKey,
-    tokenId,
-    fee
-}: {
-    amount: string;
-    destinationAddress: string;
-    walletId: string;
-    tokenId: string;
-    fee: "LOW" | "MEDIUM" | "HIGH";
-    userToken: string;
-    encryptionKey: string;
-}): Promise<{
-    status: number;
-    data: {
-        challengeId: string;
-    };
-}> {
-    return await fetch("/api/circle/createTransaction", {
-        method: "POST",
-        body: JSON.stringify({
-            amounts: [amount],
-            destinationAddress,
-            walletId,
-            userToken,
-            encryptionKey,
-            tokenId,
-            fee
-        }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(async (res) => {
-        return {
-            status: res.status,
-            data: (await res.json()).data
-        };
-    });
-}
+
 
 export async function getWalletTokenBalance({
     walletId,
@@ -253,20 +211,38 @@ export async function createWallet({
     });
 }
 
-export async function updateUserPin({
-    userId
+export async function createTransaction({
+    amount,
+    destinationAddress,
+    walletId,
+    userToken,
+    encryptionKey,
+    tokenId,
+    fee
 }: {
-    userId: string;
+    amount: string;
+    destinationAddress: string;
+    walletId: string;
+    tokenId: string;
+    fee: "LOW" | "MEDIUM" | "HIGH";
+    userToken: string;
+    encryptionKey: string;
 }): Promise<{
     status: number;
     data: {
         challengeId: string;
     };
 }> {
-    return await fetch("/api/circle/changePin", {
+    return await fetch("/api/circle/createTransaction", {
         method: "POST",
         body: JSON.stringify({
-            userId
+            amounts: [amount],
+            destinationAddress,
+            walletId,
+            userToken,
+            encryptionKey,
+            tokenId,
+            fee
         }),
         headers: {
             "Content-Type": "application/json"
@@ -304,3 +280,30 @@ export async function restorePin({
         };
     });
 }
+
+export async function updateUserPin({
+    userId
+}: {
+    userId: string;
+}): Promise<{
+    status: number;
+    data: {
+        challengeId: string;
+    };
+}> {
+    return await fetch("/api/circle/changePin", {
+        method: "POST",
+        body: JSON.stringify({
+            userId
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(async (res) => {
+        return {
+            status: res.status,
+            data: (await res.json()).data
+        };
+    });
+}
+
