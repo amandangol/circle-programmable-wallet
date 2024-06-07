@@ -1,4 +1,3 @@
-(Currently facing 405 (Method Not Allowed) on two authAPIs. Works perfectly on localhost but issue persist on deployment. Trying to fix it )
 **Project Writeup: Circle Wallet Application**
 
 The Circle Wallet application is a robust and user-friendly platform designed to simplify the management of cryptocurrency wallets. With a focus on usability and security, the wallet application offers a range of core functionalities to meet the needs of both novice and experienced users.
